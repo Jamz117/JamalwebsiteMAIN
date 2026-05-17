@@ -395,7 +395,7 @@ a:focus,
   display: table;
   width: 100%;
   padding: 0;
-  background: url(img/intro-bg.jpg) center center no-repeat;
+  background: url(img/football-pitch-and-stadium.webp) center center no-repeat;
   background-color: #e5e5e5;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -434,7 +434,12 @@ header .intro-text {
 /* Features Section */
 #features {
   padding: 100px 0;
-  background: #f6f6f6;
+  background: linear-gradient(135deg, #0b2345 0%, #1e5a9e 100%);
+  color: #fff;
+}
+#features h3,
+#features p {
+  color: #fff;
 }
 #features i.fa {
   font-size: 38px;
@@ -451,15 +456,19 @@ header .intro-text {
 /* About Section */
 #about {
   padding: 100px 0;
+  background: linear-gradient(135deg, #11294b 0%, #1d4d8a 100%);
+  color: #fff;
 }
 #about h3 {
   font-size: 22px;
   margin: 0 0 20px;
+  color: #fff;
 }
 #about h2 {
   position: relative;
   margin-bottom: 15px;
   padding-bottom: 15px;
+  color: #fff;
 }
 #about h2::after {
   position: absolute;
