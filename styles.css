@@ -674,6 +674,10 @@ header .intro-text {
 }
 #team .team-img {
   width: 240px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 #team .team-card {
   background: transparent;
