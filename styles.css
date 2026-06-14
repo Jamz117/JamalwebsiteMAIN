@@ -460,7 +460,11 @@ header .intro-text {
   padding: 30px 0;
   border-radius: 50%;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 10px 10px 10px rgba(1, 0, 10, 0.384);
+}
+#features i.fa:hover {
+  color: #0B3A57;
+  background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
 }
 /* About Section */
 #about {
@@ -554,6 +558,10 @@ header .intro-text {
   border-radius: 50%;
   color: #fff;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+}
+#services i.fa:hover {
+  color:
+  background: linear-gradient(to right, var(--primary) 0%, var(--primary-2) 100%);
 }
 #services h3 {
   font-weight: 500;
@@ -675,7 +683,7 @@ header .intro-text {
 #team .team-img {
   width: 240px;
   max-width: 100%;
-  height: auto;
+  height: 240px;
   display: block;
   margin: 0 auto;
 }
@@ -753,7 +761,7 @@ label {
   color: #444;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 0;
+  border-radius: 12px;
   font-family: inherit;
 }
 
