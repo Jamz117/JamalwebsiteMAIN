@@ -577,6 +577,13 @@ header .intro-text {
 /* Portfolio Section */
 #portfolio {
   padding: 100px 0;
+  background: var(--primary-2);
+  color: #fff;
+}
+#portfolio h2,
+#portfolio p,
+#portfolio .section-title p {
+  color: #fff;
 }
 .portfolio-items {
   display: flex;
@@ -590,7 +597,8 @@ header .intro-text {
 }
 
 .portfolio-item .img-fluid {
-  width: 100%;
+  width: 1000px;
+  height: 250px;
 }
 .portfolio-item .hover-bg {
   overflow: hidden;
@@ -636,7 +644,15 @@ header .intro-text {
 /* Testimonials Section */
 #testimonials {
   padding: 100px 0;
-  background: var(--bg-light);
+  background: var(--primary);
+  color: #fff;
+}
+#testimonials h2,
+#testimonials h3,
+#testimonials p,
+#testimonials .testimonial-meta,
+#testimonials .testimonial-content p {
+  color: #fff;
 }
 #testimonials i {
   color: #e6e6e6;
@@ -671,14 +687,21 @@ header .intro-text {
   margin-top: 10px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--muted);
 }
 /* Team Section */
 #team {
   padding: 100px 0;
+  background: var(--primary-2);
+  color: #fff;
 }
+#team h2,
 #team h4 {
   margin: 5px 0;
+  color: #fff;
+}
+#team p,
+#team .team-card .team-caption {
+  color: #fff;
 }
 #team .team-img {
   width: 240px;
@@ -693,7 +716,6 @@ header .intro-text {
 }
 #team .team-card .team-caption {
   padding: 10px 0 0;
-  color: #888;
 }
 /* Contact Section */
 #contact > .container {
@@ -860,4 +882,88 @@ label {
   z-index: 10000;
   border: none;
   cursor: pointer;
+}
+
+/* Booking Section Styles */
+.booking-section {
+  padding: 70px 0; /* smaller, match other sections */
+  background-image: linear-gradient(180deg, rgba(11,58,87,0.92), rgba(20,91,138,0.9)), url('img/portfolio/pic 5 london stadium.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.booking-section .section-title h2 {
+  color: #fff;
+}
+.booking-overlay {
+  background: rgba(0,0,0,0.35);
+  padding: 30px 0;
+}
+.booking-row {
+  display: flex;
+  justify-content: center;
+}
+.booking-card {
+  background: rgba(255,255,255,0.08);
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+.booking-card-compact {
+  max-width: 1000px;
+}
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.booking-form-col {
+  display: flex;
+  flex-direction: column;
+}
+.booking-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.booking-form label {
+  display: block;
+  color: #e9f5ff;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.booking-form input[type="date"],
+.booking-form input[type="time"],
+.booking-form input[type="number"],
+.booking-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+.booking-form .muted { color: rgba(233,245,255,0.7); font-size: 12px; }
+.form-grid { display: flex; gap: 12px; margin-bottom: 10px; }
+.form-grid .form-group { flex: 1; }
+.cost-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.compact-cost-row { flex-wrap: wrap; }
+.cost-amount { font-size: 20px; font-weight: 800; color: var(--accent); }
+.pitch-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.pitch-item { display:flex; align-items:center; gap:10px; padding:10px 12px; background: rgba(255,255,255,0.06); border-radius:8px; cursor:pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.pitch-item i.fa { font-size:18px; color: var(--accent); width:30px; height:30px; display:flex; align-items:center; justify-content:center; }
+.pitch-item:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.28); }
+.pitch-item.active { background: linear-gradient(90deg, rgba(200,159,59,0.12), rgba(200,159,59,0.06)); box-shadow: 0 8px 20px rgba(200,159,59,0.12); border: 1px solid rgba(200,159,59,0.2); }
+
+/* Unavailable/Booked styles */
+.pitch-item.unavailable { opacity: 0.45; pointer-events: none; filter: grayscale(20%); }
+.pitch-item .badge-unavailable { margin-left: auto; background: rgba(220,53,69,0.95); color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight:700; }
+
+#book { scroll-margin-top: 90px; }
+
+@media (max-width: 991px) {
+  .booking-grid { grid-template-columns: 1fr; }
+  .form-grid { flex-direction: column; }
+  .pitch-list { grid-template-columns: 1fr; }
 }

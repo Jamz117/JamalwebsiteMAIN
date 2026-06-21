@@ -40,6 +40,7 @@
             <li><a href="#features" class="page-scroll">Features</a></li>
             <li><a href="#about" class="page-scroll">About</a></li>
             <li><a href="#services" class="page-scroll">Services</a></li>
+            <li><a href="#book" class="page-scroll">Book a Match</a></li>
             <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
             <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
             <li><a href="#team" class="page-scroll">Team</a></li>
@@ -59,7 +60,7 @@
                 <p>
                   Play at iconic stadiums - Wembley, Emirates, Stamford Bridge and more.
                 </p>
-                <a href="#features" class="btn btn-custom btn-lg page-scroll">
+                <a href="#book" class="btn btn-custom btn-lg page-scroll">
                   Book a match
                 </a>
               </div>
@@ -151,6 +152,84 @@
         </div>
       </div>
     </div>
+
+    <!-- Booking Section (integrated) -->
+    <section id="book" class="booking-section">
+      <div class="booking-overlay">
+        <div class="container">
+          <div class="row">
+            <div class="col-8 col-center section-title">
+              <h2>Reserve a Pitch</h2>
+              <p>Choose an iconic London pitch, pick a date and time, and set a duration (max 4 hours).</p>
+            </div>
+          </div>
+
+          <div class="row booking-row">
+            <div class="col-10 col-center">
+              <div class="booking-card booking-card-compact">
+                <div class="booking-grid">
+                  <div class="booking-form-col">
+                    <form id="bookingForm" class="booking-form">
+                      <div class="form-group">
+                        <label for="pitch">Select Pitch</label>
+                        <select id="pitch" required>
+                          <option value="stamford" data-rate="150">Stamford Bridge — £150 / hour</option>
+                          <option value="emirates" data-rate="140">Emirates — £140 / hour</option>
+                          <option value="tottenham" data-rate="160">Tottenham Hotspur Stadium — £160 / hour</option>
+                          <option value="wembley" data-rate="300">Wembley — £300 / hour</option>
+                          <option value="loftus" data-rate="65">Loftus Road — £65 / hour</option>
+                          <option value="craven" data-rate="75">Craven Cottage — £75 / hour</option>
+                          <option value="selhurst" data-rate="70">Selhurst Stadium — £70 / hour</option>
+                          <option value="gtech" data-rate="45">G-Tech — £45 / hour</option>
+                        </select>
+                      </div>
+
+                      <div class="form-grid">
+                        <div class="form-group">
+                          <label for="date"><i class="fa fa-calendar"></i> Date</label>
+                          <input type="date" id="date" required />
+                        </div>
+                        <div class="form-group">
+                          <label for="startTime"><i class="fa fa-clock-o"></i> Start</label>
+                          <input type="time" id="startTime" required />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="hours"><i class="fa fa-hourglass-half"></i> Duration (hours)</label>
+                        <input type="number" id="hours" min="1" max="4" value="1" required />
+                        <small class="muted">Maximum 4 hours per booking</small>
+                      </div>
+
+                      <div class="form-group cost-row compact-cost-row">
+                        <div>
+                          <label>Total Cost</label>
+                          <div id="cost" class="cost-amount">£120</div>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Reserve</button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <aside class="booking-sidebar">
+                    <div class="pitch-list compact-pitch-list">
+                      <div class="pitch-item" data-pitch="stamford"><i class="fa fa-futbol-o"></i><div>Stamford Bridge</div></div>
+                      <div class="pitch-item" data-pitch="emirates"><i class="fa fa-futbol-o"></i><div>Emirates</div></div>
+                      <div class="pitch-item" data-pitch="tottenham"><i class="fa fa-futbol-o"></i><div>Tottenham Hotspur Stadium</div></div>
+                      <div class="pitch-item" data-pitch="wembley"><i class="fa fa-futbol-o"></i><div>Wembley</div></div>
+                      <div class="pitch-item" data-pitch="loftus"><i class="fa fa-futbol-o"></i><div>Loftus Road</div></div>
+                      <div class="pitch-item" data-pitch="craven"><i class="fa fa-futbol-o"></i><div>Craven Cottage</div></div>
+                      <div class="pitch-item" data-pitch="selhurst"><i class="fa fa-futbol-o"></i><div>Selhurst Stadium</div></div>
+                      <div class="pitch-item" data-pitch="gtech"><i class="fa fa-futbol-o"></i><div>G-Tech</div></div>
+                    </div>
+                  </aside>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div id="services" class="text-center">
       <div class="container">
@@ -244,16 +323,16 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/01-large.jpg"
-                    title="WAves"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Emirates Stadium</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch1.jpg"
+                      src="img/portfolio/pic 1 emirates.jpg"
                       class="img-fluid"
-                      alt="WAves"
+                      alt="Emirates Stadium"
                     />
                   </a>
                 </div>
@@ -263,15 +342,15 @@
               <div class="portfolio-item">
                 <div class="hover-bg">
                   <a
-                    href="img/portfolio/02-large.jpg"
-                    title="Project Title"
+                    href="img/portfolio/pitch 1.jpg"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Wembley Stadium</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch2.jpg"
+                      src="img/portfolio/pic 2 wembley.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -284,14 +363,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/03-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Stamford Bridge</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch3.jpg"
+                      src="img/portfolio/pic 10 stamford bridge.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -304,14 +383,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/04-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Loftus Road</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch4.jpg"
+                      src="img/portfolio/pic 12 loftus road.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -324,14 +403,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/05-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>London Stadium</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch 5.jpg"
+                      src="img/portfolio/pic 5 london stadium.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -344,16 +423,16 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/06-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Tottenham Hotspur</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch6.jpg"
+                      src="img/portfolio/pic 6 tottenham hotspur stadium.jpg"
                       class="img-fluid"
-                      alt="Project Title"
+                      alt="Tottenham Hotspur"
                     />
                   </a>
                 </div>
@@ -364,14 +443,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/07-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Craven Cottage</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch7.jpg"
+                      src="img/portfolio/pic 7 cravens cottage.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -384,14 +463,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/08-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>Selhurst Park</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch8.jpg"
+                      src="img/portfolio/pic 8 selhurst stadium.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -404,14 +483,14 @@
                 <div class="hover-bg">
                   <a
                     href="img/portfolio/09-large.jpg"
-                    title="Project Title"
+                    
                     data-lightbox-gallery="gallery1"
                   >
                     <div class="hover-text">
-                      <h4>Project Title</h4>
+                      <h4>G-Tech</h4>
                     </div>
                     <img
-                      src="img/portfolio/pitch9.jpg"
+                      src="img/portfolio/pitch 9 g-tech stadium.jpg"
                       class="img-fluid"
                       alt="Project Title"
                     />
@@ -529,25 +608,25 @@
         <div class="row">
           <div class="col-3 team">
             <div class="team-card">
-              <img src="img/team/cristiano.jpg" alt="Cristiano Ronaldo" class="team-img" />
+              <img src="img/team/person1.jpg" alt="Yacouba Tifawt" class="team-img" />
               <div class="team-caption">
-                <h4>Cristiano Ronaldo</h4>
+                <h4>Yacouba Tifawt</h4>
                 <p>Director</p>
               </div>
             </div>
           </div>
           <div class="col-3 team">
             <div class="team-card">
-              <img src="img/team/messi.jpg" alt="Lionel Messi" class="team-img" />
+              <img src="img/team/person2.jpg" alt="John Doe" class="team-img" />
               <div class="team-caption">
-                <h4>Lionel Messi</h4>
+                <h4>John Doe</h4>
                 <p>Senior Designer</p>
               </div>
             </div>
           </div>
           <div class="col-3 team">
             <div class="team-card">
-              <img src="img/team/03.jpg" alt="Priya Sharma" class="team-img" />
+              <img src="img/team/person3.jpg" alt="Priya Sharma" class="team-img" />
               <div class="team-caption">
                 <h4>Priya Sharma</h4>
                 <p>Senior Designer</p>
@@ -556,7 +635,7 @@
           </div>
           <div class="col-3 team">
             <div class="team-card">
-              <img src="img/team/04.jpg" alt="Olivia Bennett" class="team-img" />
+              <img src="img/team/person4.jpg" alt="Olivia Bennett" class="team-img" />
               <div class="team-caption">
                 <h4>Olivia Bennett</h4>
                 <p>Project Manager</p>
@@ -681,6 +760,7 @@
 
     <script src="script.js"></script>
     <script src="app.js"></script>
+    <script src="booking.js"></script>
 
   </body>
 </html>
