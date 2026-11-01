@@ -12,17 +12,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Book Football Matches Across London</title>
+    <title>LeagueUp | Club dashboard</title>
     <meta
       name="description"
-      content="body"
+      content="Manage your club fixtures, events, teams, and announcements with LeagueUp."
     />
   </head>
   <body id="page-top">
     <nav id="menu" class="site-nav">
       <div class="container nav-inner">
-        <a class="nav-brand page-scroll" href="#page-top">
-          London Football Matches
+        <a class="nav-brand page-scroll" href="#dashboard">
+          LeagueUp
         </a>
         <button
           type="button"
@@ -37,35 +37,239 @@
         </button>
         <div id="nav-links" class="nav-links">
           <ul class="nav-list">
-            <li><a href="#features" class="page-scroll">Features</a></li>
-            <li><a href="#about" class="page-scroll">About</a></li>
-            <li><a href="#services" class="page-scroll">Services</a></li>
-            <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
-            <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
-            <li><a href="#team" class="page-scroll">Team</a></li>
-            <li><a href="#contact" class="page-scroll">Contact</a></li>
+            <li><a href="#dashboard" class="page-scroll">Overview</a></li>
+            <li><a href="#fixtures" class="page-scroll">Fixtures</a></li>
+            <li><a href="#events" class="page-scroll">Events</a></li>
+            <li><a href="#teams" class="page-scroll">Teams</a></li>
+            <li><a href="#announcements" class="page-scroll">Updates</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <header id="header">
-      <div class="intro">
-        <div class="overlay">
-          <div class="container">
-            <div class="row">
-              <div class="col-8 col-center intro-text">
-                <h1>Book Football Matches Across London<span></span></h1>
-                <p>
-                  Play at iconic stadiums - Wembley, Emirates, Stamford Bridge and more.
-                </p>
-              </div>
-            </div>
+    <header id="dashboard" class="workspace-header">
+      <div class="container">
+        <div class="workspace-header-top">
+          <div>
+            <p class="workspace-eyebrow">Club workspace / 2026 season</p>
+            <h1 id="league-name">Sunday League</h1>
+            <p class="workspace-intro">Your fixtures, events, and team updates in one place.</p>
+          </div>
+          <a class="workspace-action page-scroll" href="#event-form">Create event</a>
+        </div>
+        <div class="workspace-stats" aria-label="League summary">
+          <div class="workspace-stat">
+            <span>Teams</span>
+            <strong id="dashboard-team-count">0</strong>
+          </div>
+          <div class="workspace-stat">
+            <span>Fixtures</span>
+            <strong id="dashboard-fixture-count">0</strong>
+          </div>
+          <div class="workspace-stat">
+            <span>Events</span>
+            <strong id="dashboard-event-count">0</strong>
+          </div>
+          <div class="workspace-stat">
+            <span>Updates</span>
+            <strong id="dashboard-announcement-count">0</strong>
           </div>
         </div>
       </div>
     </header>
 
+    <section id="league" class="league-section">
+      <div class="container">
+        <div class="league-heading">
+          <div>
+            <p class="league-kicker">Competition</p>
+            <h2>League overview</h2>
+          </div>
+          <p class="league-caption">Scores update the table automatically.</p>
+        </div>
+
+        <div class="league-layout">
+          <section class="league-panel" aria-labelledby="standings-title">
+            <div class="league-panel-heading">
+              <div>
+                <p class="league-kicker">Season standings</p>
+                <h3 id="standings-title">Table</h3>
+              </div>
+              <span id="league-team-count" class="league-team-count"></span>
+            </div>
+            <div class="league-table-scroll">
+              <table class="league-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Club</th>
+                    <th scope="col">P</th>
+                    <th scope="col">W</th>
+                    <th scope="col">D</th>
+                    <th scope="col">L</th>
+                    <th scope="col">GF</th>
+                    <th scope="col">GA</th>
+                    <th scope="col">GD</th>
+                    <th scope="col">Pts</th>
+                  </tr>
+                </thead>
+                <tbody id="standings-body"></tbody>
+              </table>
+            </div>
+            <p id="points-summary" class="league-table-note">3 points for a win, 1 for a draw, 0 for a loss.</p>
+          </section>
+
+          <div class="league-sidebar">
+            <section id="fixtures" class="league-panel" aria-labelledby="fixtures-title">
+              <div class="league-panel-heading">
+                <div>
+                  <p class="league-kicker">Matchday</p>
+                  <h3 id="fixtures-title">Fixtures</h3>
+                </div>
+              </div>
+              <ol id="fixture-list" class="fixture-list"></ol>
+              <p id="league-message" class="league-message" role="status" aria-live="polite"></p>
+            </section>
+
+          </div>
+
+          <div class="league-tools">
+            <section class="league-panel schedule-panel" aria-labelledby="schedule-title">
+              <details class="disclosure-panel">
+                <summary id="schedule-title">
+                  <span class="disclosure-label">Schedule a match</span>
+                  <span class="disclosure-hint">Choose teams and date</span>
+                </summary>
+                <form id="match-form" class="schedule-form">
+                  <label class="schedule-field">
+                    <span>Home team</span>
+                    <select name="homeTeam" required></select>
+                  </label>
+                  <label class="schedule-field">
+                    <span>Away team</span>
+                    <select name="awayTeam" required></select>
+                  </label>
+                  <label class="schedule-field">
+                    <span>Match date</span>
+                    <input name="kickoffDate" type="date" required />
+                  </label>
+                  <button class="schedule-button" type="submit">Add fixture</button>
+                </form>
+              </details>
+            </section>
+
+            <section id="teams" class="league-panel league-customizer" aria-labelledby="customize-title">
+              <details class="disclosure-panel">
+                <summary id="customize-title">
+                  <span class="disclosure-label">Manage league and teams</span>
+                  <span class="disclosure-hint">Edit the name or team list</span>
+                </summary>
+                <div class="disclosure-content">
+                  <form id="league-settings-form" class="league-settings-form">
+                    <label class="schedule-field league-name-field">
+                      <span>League name</span>
+                      <input name="leagueName" type="text" maxlength="40" required />
+                    </label>
+                    <button class="schedule-button" type="submit">Save name</button>
+                  </form>
+
+                  <div class="team-manager">
+                    <div class="team-manager-heading">
+                      <h4>Teams</h4>
+                      <span>Rename or remove clubs</span>
+                    </div>
+                    <ul id="team-list" class="team-list"></ul>
+                    <form id="team-add-form" class="team-add-form">
+                      <label class="schedule-field">
+                        <span>Add a team</span>
+                        <input name="teamName" type="text" maxlength="32" placeholder="Team name" required />
+                      </label>
+                      <button class="schedule-button" type="submit">Add team</button>
+                    </form>
+                  </div>
+                </div>
+              </details>
+            </section>
+          </div>
+        </div>
+
+        <div class="community-hub">
+          <div class="community-heading">
+            <div>
+              <p class="league-kicker">Team coordination</p>
+              <h3>Club hub</h3>
+            </div>
+            <p>Keep event plans and important updates together.</p>
+          </div>
+          <div class="community-grid">
+            <section id="events" class="league-panel community-panel" aria-labelledby="events-title">
+              <div class="league-panel-heading">
+                <div>
+                  <p class="league-kicker">Training and socials</p>
+                  <h3 id="events-title">Events</h3>
+                </div>
+              </div>
+              <details class="community-disclosure">
+                <summary>Create an event</summary>
+                <form id="event-form" class="community-form event-form">
+                  <label class="schedule-field community-wide">
+                    <span>Event name</span>
+                    <input name="title" type="text" maxlength="60" placeholder="e.g. Wednesday training" required />
+                  </label>
+                  <label class="schedule-field">
+                    <span>Type</span>
+                    <select name="type" required>
+                      <option value="Training">Training</option>
+                      <option value="Social">Social</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </label>
+                  <label class="schedule-field">
+                    <span>Date</span>
+                    <input name="date" type="date" required />
+                  </label>
+                  <label class="schedule-field community-wide">
+                    <span>Location</span>
+                    <input name="location" type="text" maxlength="80" placeholder="Optional" />
+                  </label>
+                  <button class="schedule-button" type="submit">Create event</button>
+                </form>
+              </details>
+              <ol id="event-list" class="community-list"></ol>
+              <p id="event-message" class="community-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <section id="announcements" class="league-panel community-panel" aria-labelledby="announcements-title">
+              <div class="league-panel-heading">
+                <div>
+                  <p class="league-kicker">Organizer updates</p>
+                  <h3 id="announcements-title">Announcements</h3>
+                </div>
+              </div>
+              <details class="community-disclosure">
+                <summary>Post an announcement</summary>
+                <form id="announcement-form" class="community-form announcement-form">
+                  <label class="schedule-field community-wide">
+                    <span>Headline</span>
+                    <input name="title" type="text" maxlength="80" required />
+                  </label>
+                  <label class="schedule-field community-wide">
+                    <span>Update</span>
+                    <textarea name="body" rows="3" maxlength="600" required></textarea>
+                  </label>
+                  <button class="schedule-button" type="submit">Post announcement</button>
+                </form>
+              </details>
+              <ol id="announcement-list" class="community-list"></ol>
+              <p id="announcement-message" class="community-message" role="status" aria-live="polite"></p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <details class="legacy-content">
+      <summary>About LeagueUp and venues</summary>
     <div id="features" class="text-center">
       <div class="container">
         <div class="col-10 col-center section-title">
@@ -118,7 +322,7 @@
             <div class="about-text">
               <h2>About Us</h2>
               <p>
-                At London Football Matches, we make booking pitch time simple,
+                At LeagueUp, we make booking pitch time simple,
                 fast, and reliable. Whether you’re organising a training session,
                 a friendly 5-a-side, or a full club fixture, our platform
                 connects you with top venues across the city, real-time
@@ -661,11 +865,13 @@
       <div id="footer">
         <div class="container text-center">
           <p>
-            &copy; 2026 London Football Matches. All Rights Reserved.
+            &copy; 2026 LeagueUp. All Rights Reserved.
           </p>
         </div>
       </div>
     </div>
+
+    </details>
 
     <script src="script.js"></script>
     <script src="app.js"></script>

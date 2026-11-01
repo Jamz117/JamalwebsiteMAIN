@@ -17,11 +17,11 @@ html {
 }
 
 :root {
-  --primary: #0B3A57; /* deep navy */
-  --primary-2: #145B8A; /* mid blue */
-  --accent: #C89F3B; /* warm gold */
-  --muted: #6c757d;
-  --bg-light: #f6f7f9;
+  --primary: #101713;
+  --primary-2: #1b2820;
+  --accent: #b8f45a;
+  --muted: #8d9a90;
+  --bg-light: #151c17;
   --white: #ffffff;
 }
 
@@ -216,10 +216,9 @@ hr {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 15px 0;
-  transition: all 0.8s;
+  padding: 8px 0;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 8px rgba(16, 23, 19, 0.12);
 }
 
 #menu .nav-inner {
@@ -233,7 +232,7 @@ hr {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: var(--primary-2);
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -252,12 +251,12 @@ hr {
   position: relative;
   display: block;
   font-family: "Lato", sans-serif;
-  text-transform: uppercase;
-  color: #555;
-  font-size: 15px;
-  font-weight: 400;
+  text-transform: none;
+  color: #4c5a50;
+  font-size: 14px;
+  font-weight: 600;
   padding: 8px 2px;
-  margin: 9px 20px 0;
+  margin: 0 0 0 24px;
   text-decoration: none;
 }
 
@@ -268,7 +267,7 @@ hr {
   bottom: -1px;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, var(--primary-2) 0%, var(--primary) 100%);
+  background: var(--accent);
   content: "";
   transition: width 0.2s;
 }
@@ -276,6 +275,11 @@ hr {
 #menu .nav-list > li > a:hover::after,
 #menu .nav-list > li > a:focus::after {
   width: 100%;
+}
+
+#menu .nav-list > li > a:focus-visible {
+  outline: 2px solid var(--primary-2);
+  outline-offset: 3px;
 }
 
 .nav-toggle {
@@ -286,7 +290,7 @@ hr {
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid #ddd;
+  border: 1px solid #d5ddd6;
   border-radius: 0;
   background: #fff;
   cursor: pointer;
@@ -297,13 +301,13 @@ hr {
   width: 22px;
   height: 2px;
   margin: 0 auto;
-  background-color: #555;
+  background-color: var(--primary-2);
   transition: background-color 0.2s;
 }
 
 .nav-toggle:hover,
 .nav-toggle:focus {
-  border-color: var(--primary-2);
+  border-color: #a4b1a6;
 }
 
 .nav-toggle:hover .nav-toggle-bar,
@@ -333,7 +337,7 @@ hr {
   }
 
   #menu .nav-list > li > a {
-    margin: 6px 0;
+    margin: 4px 0;
   }
 }
 .section-title {
@@ -399,47 +403,878 @@ a:focus,
   outline: none;
   outline-offset: none;
 }
-/* Header Section */
-.intro {
-  display: table;
-  width: 100%;
-  padding: 0;
-  background: url(img/football-pitch-and-stadium.webp) center center no-repeat;
-  background-color: #e5e5e5;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+/* Club dashboard header */
+.workspace-header {
+  padding: 26px 0 18px;
+  background: #f2f5f1;
+  color: var(--primary-2);
 }
-.intro .overlay {
-  background: rgba(0, 0, 0, 0.25);
+
+.workspace-header-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 20px;
 }
-.intro h1 {
-  font-family: "Raleway", sans-serif;
-  color: #fff;
-  font-size: 82px;
+
+.workspace-eyebrow {
+  margin: 0 0 6px;
+  color: #637366;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  margin-top: 0;
+}
+
+.workspace-header h1 {
+  margin: 0;
+  color: var(--primary-2);
+  font-family: "Raleway", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.workspace-intro {
+  margin: 6px 0 0;
+  color: #5c695e;
+  font-size: 14px;
+}
+
+.workspace-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 2px;
+  background: var(--primary-2);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.workspace-action:hover,
+.workspace-action:focus {
+  background: #304535;
+  color: var(--white);
+}
+
+.workspace-action:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.workspace-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid #d9e0d9;
+  padding-top: 14px;
+}
+
+.workspace-stat {
+  display: grid;
+  gap: 3px;
+  padding: 0 16px;
+  border-right: 1px solid #d9e0d9;
+}
+
+.workspace-stat:first-child {
+  padding-left: 0;
+}
+
+.workspace-stat:last-child {
+  border-right: 0;
+}
+
+.workspace-stat span {
+  color: #637366;
+  font-size: 12px;
+}
+
+.workspace-stat strong {
+  color: var(--primary-2);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#fixtures,
+#events,
+#teams,
+#announcements,
+#event-form {
+  scroll-margin-top: 82px;
+}
+
+/* League workspace */
+.league-section {
+  padding: 40px 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: var(--white);
+}
+
+.league-heading,
+.league-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.league-heading {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.league-heading h2,
+.league-panel h3 {
+  margin: 0;
+  color: var(--white);
+}
+
+.league-heading h2 {
+  padding: 0;
+}
+
+.league-heading h2::after {
+  content: none;
+}
+
+.league-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.league-caption {
+  max-width: 290px;
+  margin: 0;
+  color: #c4cec5;
+}
+
+.league-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(290px, 0.8fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.league-tools {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.league-sidebar {
+  display: grid;
+  gap: 0;
+}
+
+.league-panel {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-top: 3px solid var(--accent);
+  background: rgba(8, 14, 10, 0.42);
+}
+
+.league-panel-heading {
+  margin-bottom: 12px;
+}
+
+.league-panel h3 {
+  font-size: 22px;
+  text-transform: none;
+}
+
+.league-team-count {
+  color: #c4cec5;
+  font-size: 13px;
+}
+
+.league-table-scroll {
+  overflow-x: auto;
+}
+
+.league-table {
+  width: 100%;
+  min-width: 570px;
+  border-collapse: collapse;
+  color: #e8eee8;
+  font-size: 13px;
+  text-align: right;
+}
+
+.league-table th,
+.league-table td {
+  padding: 11px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.league-table th {
+  color: #9eada1;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.league-table th:nth-child(2),
+.league-table td:nth-child(2) {
+  text-align: left;
+}
+
+.league-table td:nth-child(2) {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.league-table td:last-child {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.league-table-note {
+  margin: 14px 0 0;
+  color: #9eada1;
+  font-size: 12px;
+}
+
+.fixture-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fixture-item {
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fixture-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #9eada1;
+  font-size: 12px;
+}
+
+.fixture-state {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.fixture-teams {
+  margin: 8px 0 12px;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.fixture-score-form {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.fixture-score-field,
+.schedule-field {
+  display: grid;
+  gap: 5px;
+  color: #c4cec5;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.fixture-score-field input {
+  width: 66px;
+  min-height: 38px;
+  padding: 7px;
+  border: 1px solid #46574a;
+  border-radius: 2px;
+  background: #101713;
+  color: var(--white);
+  font: inherit;
+}
+
+.fixture-score-form button,
+.schedule-button {
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--primary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fixture-score-form button:hover,
+.schedule-button:hover {
+  background: #d0ff8d;
+}
+
+.fixture-final-score {
+  margin: 0;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.league-message {
+  min-height: 16px;
+  margin: 8px 0 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.schedule-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.schedule-field select,
+.schedule-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px;
+  border: 1px solid #46574a;
+  border-radius: 2px;
+  background: #101713;
+  color: var(--white);
+  font: inherit;
+}
+
+.league-section input:focus,
+.league-section select:focus,
+.league-section button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.schedule-date-field,
+.schedule-button {
+  grid-column: 1 / -1;
+}
+
+.schedule-button {
+  justify-self: start;
+}
+
+.disclosure-panel > summary,
+.community-disclosure > summary,
+.inline-disclosure > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.disclosure-panel > summary::-webkit-details-marker,
+.community-disclosure > summary::-webkit-details-marker,
+.inline-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure-panel > summary::after,
+.community-disclosure > summary::after,
+.inline-disclosure > summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.disclosure-panel[open] > summary::after,
+.community-disclosure[open] > summary::after,
+.inline-disclosure[open] > summary::after {
+  content: "-";
+}
+
+.disclosure-label {
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.disclosure-hint {
+  color: #9eada1;
+  font-size: 12px;
+  text-align: right;
+}
+
+.disclosure-content,
+.disclosure-panel > form {
+  margin-top: 12px;
+}
+
+.community-disclosure {
   margin-bottom: 10px;
 }
-.intro h1 span {
-  font-weight: 800;
+
+.community-disclosure > summary {
+  justify-content: flex-start;
+  min-height: 36px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inline-disclosure {
+  margin-top: 8px;
+}
+
+.inline-disclosure > summary {
+  justify-content: flex-start;
+  min-height: 30px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.roster-disclosure {
+  margin: 0 0 8px;
+}
+
+.league-section summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.league-settings-form {
+  display: grid;
+  gap: 14px;
+}
+
+.league-name-field {
+  grid-column: 1 / -1;
+}
+
+.team-manager {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.team-manager-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.team-manager-heading h4 {
+  margin: 0;
+  color: var(--white);
+}
+
+.team-manager-heading span {
+  color: #9eada1;
+  font-size: 12px;
+}
+
+.team-list {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.team-editor-item,
+.team-edit-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.team-edit-form {
+  flex: 1;
+}
+
+.team-edit-form input,
+.team-add-form input {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 9px;
+  border: 1px solid #46574a;
+  border-radius: 2px;
+  background: #101713;
+  color: var(--white);
+  font: inherit;
+}
+
+.team-editor-item button {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid #536557;
+  border-radius: 2px;
+  background: transparent;
+  color: #e8eee8;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.team-editor-item button:hover:not(:disabled) {
+  border-color: var(--accent);
   color: var(--accent);
 }
-.intro p {
-  color: #fff;
+
+.team-editor-item button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.team-add-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.team-add-form .schedule-field {
+  min-width: 0;
+}
+
+.team-add-form .schedule-button {
+  grid-column: auto;
+}
+
+.community-hub {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.community-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.community-heading h3 {
+  margin: 0;
+  color: var(--white);
   font-size: 22px;
-  font-weight: 300;
-  line-height: 30px;
+}
+
+.community-heading > p {
+  margin: 0;
+  color: #c4cec5;
+  font-size: 13px;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.community-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: 10px 12px;
+  margin-bottom: 14px;
+}
+
+.community-form .community-wide {
+  grid-column: 1 / -1;
+}
+
+.community-form input,
+.community-form select,
+.community-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  padding: 8px;
+  border: 1px solid #46574a;
+  border-radius: 2px;
+  background: #101713;
+  color: var(--white);
+  font: inherit;
+}
+
+.community-form textarea {
+  resize: vertical;
+}
+
+.community-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.community-item {
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.community-item-header,
+.community-item-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.community-item h4 {
+  margin: 0;
+  color: var(--white);
+  font-size: 15px;
+}
+
+.community-item-meta,
+.event-type,
+.community-empty {
+  color: #9eada1;
+  font-size: 12px;
+}
+
+.event-type {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.event-rsvp-counts {
+  margin: 8px 0;
+  color: #c4cec5;
+  font-size: 12px;
+}
+
+.rsvp-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #c4cec5;
+  font-size: 12px;
+  list-style: none;
+}
+
+.rsvp-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(110px, 0.7fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.rsvp-form input,
+.rsvp-form select {
+  width: 100%;
+  min-width: 0;
+  min-height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #46574a;
+  border-radius: 2px;
+  background: #101713;
+  color: var(--white);
+  font: inherit;
+  font-size: 12px;
+}
+
+.rsvp-form button {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--primary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.announcement-copy {
+  margin: 6px 0 0;
+  color: #c4cec5;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.community-message {
+  min-height: 16px;
+  margin: 8px 0 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.community-empty {
+  padding: 10px 0;
+}
+
+.legacy-content {
+  background: #f2f5f1;
+  color: var(--primary-2);
+}
+
+.legacy-content > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1170px;
+  min-height: 48px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  padding: 8px 15px;
+  color: var(--primary-2);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
 }
-header .intro-text {
-  padding-top: 350px;
-  padding-bottom: 200px;
-  text-align: center;
+
+.legacy-content > summary::-webkit-details-marker {
+  display: none;
 }
+
+.legacy-content > summary::after {
+  content: "+";
+  color: #52714f;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.legacy-content[open] > summary::after {
+  content: "-";
+}
+
+.legacy-content > summary:focus-visible {
+  outline: 2px solid #52714f;
+  outline-offset: -2px;
+}
+
+@media (max-width: 900px) {
+  .league-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .league-tools {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .league-section {
+    padding: 32px 0;
+  }
+
+  .league-heading {
+    display: block;
+  }
+
+  .league-caption {
+    margin-top: 8px;
+  }
+
+  .league-heading h2 {
+    font-size: 30px;
+  }
+
+  .league-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .community-heading {
+    display: block;
+  }
+
+  .community-heading > p {
+    margin-top: 6px;
+  }
+
+  .league-panel {
+    padding: 13px;
+  }
+
+  .team-add-form {
+    grid-template-columns: 1fr;
+  }
+
+  .team-add-form .schedule-button {
+    justify-self: start;
+  }
+
+  .rsvp-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rsvp-form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .workspace-header {
+    padding: 20px 0 14px;
+  }
+
+  .workspace-header-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .workspace-header h1 {
+    font-size: 29px;
+  }
+
+  .disclosure-hint {
+    display: none;
+  }
+
+  .workspace-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 12px;
+  }
+
+  .workspace-stat {
+    padding: 0 10px;
+  }
+
+  .workspace-stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .workspace-stat:nth-child(3) {
+    padding-left: 0;
+  }
+}
+
 /* Features Section */
 #features {
   padding: 100px 0;
@@ -962,6 +1797,189 @@ label {
 .pitch-item .badge-unavailable { margin-left: auto; background: rgba(220,53,69,0.95); color: #fff; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight:700; }
 
 #book { scroll-margin-top: 90px; }
+
+/* LeagueUp dark matchday theme */
+body {
+  color: #b7c0b9;
+  background: #101713;
+}
+
+h2,
+h3,
+h4 {
+  color: #f0f4ef;
+}
+
+#menu.site-nav {
+  background: rgba(13, 19, 15, 0.96);
+  box-shadow: 0 1px 0 rgba(184, 244, 90, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+#menu a.nav-brand {
+  color: #f0f4ef;
+  letter-spacing: 1px;
+}
+
+#menu .nav-brand::after {
+  content: ".";
+  color: var(--accent);
+}
+
+#menu .nav-list > li > a {
+  color: #b7c0b9;
+}
+
+#menu .nav-list > li > a::after,
+.section-title h2::after {
+  background: var(--accent);
+}
+
+.nav-toggle {
+  border-color: #344238;
+  background: #151c17;
+}
+
+.nav-toggle-bar {
+  background-color: #e5ede6;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus {
+  border-color: var(--accent);
+}
+
+.nav-toggle:hover .nav-toggle-bar,
+.nav-toggle:focus .nav-toggle-bar {
+  background-color: var(--accent);
+}
+
+.intro .overlay {
+  background: linear-gradient(90deg, rgba(8, 13, 10, 0.86), rgba(8, 13, 10, 0.38));
+}
+
+.intro h1 {
+  font-size: 88px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.intro p {
+  color: #d0d8d1;
+}
+
+#features,
+#testimonials {
+  background: #111813;
+}
+
+#about,
+#portfolio,
+#team {
+  background: #18221a;
+}
+
+#services,
+#contact {
+  background: #0d130f;
+}
+
+#features h2,
+#about h2,
+#services h2,
+#portfolio h2,
+#testimonials h2,
+#team h2,
+#contact h2 {
+  color: #f0f4ef;
+}
+
+#features i.fa,
+#services i.fa {
+  color: var(--accent);
+  background: #202d23;
+  box-shadow: inset 0 0 0 1px rgba(184, 244, 90, 0.18);
+}
+
+#features i.fa:hover,
+#services i.fa:hover {
+  color: #101713;
+  background: var(--accent);
+}
+
+#about h2::after,
+#contact .section-title h2::after {
+  background: var(--accent);
+}
+
+.btn-custom {
+  color: #101713;
+  background: var(--accent);
+  background-image: none;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.btn-custom:hover,
+.btn-custom:focus {
+  color: #101713;
+  background: #d0ff85;
+}
+
+.booking-section {
+  background-image: linear-gradient(180deg, rgba(10, 16, 12, 0.94), rgba(15, 23, 17, 0.9)), url('img/portfolio/pic 5 london stadium.jpg');
+}
+
+.booking-card {
+  border: 1px solid rgba(184, 244, 90, 0.14);
+  border-radius: 6px;
+  background: rgba(16, 23, 19, 0.88);
+}
+
+.booking-form input[type="date"],
+.booking-form input[type="time"],
+.booking-form input[type="number"],
+.booking-form select,
+#contact .field {
+  color: #edf3ed;
+  background-color: #1b261e;
+  border: 1px solid #354338;
+  border-radius: 4px;
+}
+
+.booking-form select option {
+  color: #edf3ed;
+  background: #1b261e;
+}
+
+.pitch-item:hover {
+  background: #26382a;
+  color: #f0f4ef;
+}
+
+#footer {
+  background: #090e0b;
+  border-top: 1px solid rgba(184, 244, 90, 0.12);
+}
+
+#footer p {
+  color: #8d9a90;
+}
+
+#footer a,
+a {
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .intro h1 {
+    font-size: 56px;
+  }
+
+  .intro p {
+    font-size: 18px;
+  }
+}
 
 @media (max-width: 991px) {
   .booking-grid { grid-template-columns: 1fr; }

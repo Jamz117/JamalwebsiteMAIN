@@ -6,6 +6,8 @@
       var target = document.querySelector(href);
       if (!target) return;
       event.preventDefault();
+      var disclosure = target.closest('details');
+      if (disclosure) disclosure.open = true;
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
